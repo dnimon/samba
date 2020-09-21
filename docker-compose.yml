@@ -21,4 +21,4 @@ services:
     tty: true
     volumes:
       - /media/storage/share/dnimon:/mnt/dnimon
-    command: '-s "Davids Volume;/mnt/dnimon;yes;no;no;dnimon" -u "dnimon;${DNIMON_PASSWORD};1001:dnimon:1001" -p'
+    command: '-s "Davids Volume;/mnt/dnimon;yes;no;no;dnimon" -u "dnimon;${DNIMON_PASSWORD};1001;dnimon;1001" -p'
