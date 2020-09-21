@@ -8,8 +8,6 @@ services:
       dockerfile: Dockerfile.aarch64
     environment:
       TZ: 'CST6CDT'
-    networks:
-      - default
     ports:
       - "137:137/udp"
       - "138:138/udp"
@@ -24,6 +22,3 @@ services:
     volumes:
       - /media/storage/share/dnimon:/mnt/dnimon
     command: '-s "Davids Volume;/mnt/dnimon;yes;no;no;dnimon" -u "dnimon;${DNIMON_PASSWORD};1001:dnimon:1001" -p'
-
-networks:
-  default:
