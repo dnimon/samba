@@ -3,9 +3,9 @@ version: '2.0'
 services:
   samba:
     image: personalsamba
-      build:
-          context: .
-          dockerfile: Dockerfile.aarch64
+    build:
+      context: .
+      dockerfile: Dockerfile.aarch64
     environment:
       TZ: 'CST6CDT'
     networks:
