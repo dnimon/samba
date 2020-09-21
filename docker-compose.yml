@@ -1,10 +1,13 @@
-version: '3.4'
+version: '2.0'
 
 services:
   samba:
-    image: dperson/samba
+    image: personalsamba
+      build:
+          context: .
+          dockerfile: Dockerfile.aarch64
     environment:
-      TZ: 'EST5EDT'
+      TZ: 'CST6CDT'
     networks:
       - default
     ports:
@@ -12,16 +15,15 @@ services:
       - "138:138/udp"
       - "139:139/tcp"
       - "445:445/tcp"
-    read_only: true
+    read_only: false
     tmpfs:
       - /tmp
     restart: unless-stopped
     stdin_open: true
     tty: true
     volumes:
-      - /mnt:/mnt:z
-      - /mnt2:/mnt2:z
-    command: '-s "Mount;/mnt" -s "Bobs Volume;/mnt2;yes;no;no;bob" -u "bob;bobspasswd" -p'
+      - /media/storage/share/dnimon:/mnt/dnimon
+    command: '-s "Davids Volume;/mnt/dnimon;yes;no;no;dnimon" -u "dnimon;${DNIMON_PASSWORD};1001:dnimon:1001" -p'
 
 networks:
   default:
