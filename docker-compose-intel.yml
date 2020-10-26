@@ -1,0 +1,24 @@
+version: '2.0'
+
+services:
+  samba:
+    image: personalsamba
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      TZ: 'CST6CDT'
+    ports:
+      - "137:137/udp"
+      - "138:138/udp"
+      - "139:139/tcp"
+      - "445:445/tcp"
+    read_only: false
+    tmpfs:
+      - /tmp
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+    volumes:
+      - /media/storage/share/dnimon:/mnt/dnimon:z
+    command: '-s "dnimon;/mnt/dnimon;yes;no;no;dnimon" -u "dnimon;${DNIMON_PASSWORD};1001;dnimon;1001"'
