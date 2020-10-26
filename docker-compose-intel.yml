@@ -20,5 +20,5 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - /media/storage/share/dnimon:/mnt/dnimon:z
-    command: '-s "dnimon;/mnt/dnimon;yes;no;no;dnimon" -u "dnimon;${DNIMON_PASSWORD};1001;dnimon;1001"'
+      - /home/ubuntu/storage/share/dnimon:/mnt/dnimon:z
+    command: '-s "dnimon;/mnt/dnimon;yes;no;no;dnimon" -u "dnimon;${DNIMON_PASSWORD};1001;dnimon;1002"'
